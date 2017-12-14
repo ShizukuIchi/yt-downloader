@@ -1,5 +1,6 @@
-YT donwloader
+YT Downloader
 ===
+> Using pure front-end javascript
 
 ## Usage
 
