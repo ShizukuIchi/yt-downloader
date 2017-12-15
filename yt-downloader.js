@@ -41,7 +41,7 @@ getVideo = async () => {
     console.log(err); 
   } 
   downloadSrc = urls.url; 
-  if (typeof downloadSrc !== 'String'){ 
+  if (typeof downloadSrc !== 'string'){ 
     downloadSrc = urls.url[0]; 
   } 
   dl = document.createElement('a'); 
