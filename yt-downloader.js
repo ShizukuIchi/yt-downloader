@@ -40,10 +40,17 @@ getVideo = async () => {
   } catch(err) { 
     console.log(err); 
   } 
-  downloadSrc = urls.url; 
-  if (typeof downloadSrc !== 'string'){ 
-    downloadSrc = urls.url[0]; 
+
+  let downloadSrc; 
+  if (typeof urls.url === 'object'){ 
+    downloadSrc = urls.url[0].split(',')[0]; 
+  } else if (typeof urls.url === 'string') { 
+     downloadSrc = urls.url.split(',')[0]; 
+  } else { 
+    console.log('no urls found!'); 
+    return; 
   } 
+
   dl = document.createElement('a'); 
   dl.href = downloadSrc; 
   dl.download = urlsObject.args.title; 
@@ -52,3 +59,14 @@ getVideo = async () => {
 getVideo()
   .then(()=>console.log('Have a nice day.'))
   .catch(e=>console.log(e));
+
+ let downloadSrc; 
+ if (typeof urls.url === 'object'){ 
+   downloadSrc = urls.url[0].split(',')[0]; 
+  } else if (typeof urls.url === 'string') { 
+    downloadSrc = urls.url.split(',')[0]; 
+  } else { 
+    console.log('no urls found!'); 
+    return; 
+  } 
+  console.log(urls.url); dl = document.createElement('a'); dl.href = downloadSrc; dl.download = urlsObject.args.title; console.log(urlsObject.args); dl.click(); }; getVideo() .then(()=>console.log('Have a nice day.')) .catch(e=>console.log(e));
